@@ -1,0 +1,10 @@
+scan:
+  sast: false
+  sca: false
+  secrets: false
+  iac: false
+  container: auto
+  sbom: true
+  dast: false
+gate:
+  mode: enforce

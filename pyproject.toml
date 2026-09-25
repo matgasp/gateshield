@@ -1,0 +1,78 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gateshield"
+version = "0.0.1"
+description = "Policy-driven security orchestration for hardened CI/CD pipelines"
+readme = "README.md"
+requires-python = ">=3.12,<3.15"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+  {name = "Matheus Gasperazzo"}
+]
+keywords = [
+  "appsec",
+  "devsecops",
+  "ci-cd",
+  "security-automation",
+  "security-gates",
+  "sast",
+  "sca",
+  "dast",
+  "secret-scanning",
+  "iac-security",
+  "container-security",
+  "sbom",
+  "software-supply-chain",
+  "github-actions",
+  "semgrep",
+  "gitleaks",
+  "trivy",
+  "checkov",
+  "owasp-zap",
+  "policy-as-code"
+]
+dependencies = [
+  "PyYAML>=6.0.2,<7"
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Intended Audience :: System Administrators",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Security",
+  "Topic :: Software Development :: Build Tools",
+  "Topic :: Software Development :: Quality Assurance"
+]
+
+[project.optional-dependencies]
+dev = [
+  "build>=1.2.2,<2",
+  "pytest>=8.3,<9",
+  "twine>=6,<7"
+]
+
+[project.scripts]
+gateshield = "gateshield.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/matgasp/gateshield"
+Repository = "https://github.com/matgasp/gateshield"
+Issues = "https://github.com/matgasp/gateshield/issues"
+Changelog = "https://github.com/matgasp/gateshield/blob/main/CHANGELOG.md"
+Security = "https://github.com/matgasp/gateshield/security/policy"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

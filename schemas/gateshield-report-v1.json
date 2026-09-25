@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/matgasp/gateshield/main/schemas/gateshield-report-v1.json",
+  "title": "GateShield Report v1",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "run", "summary", "findings"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "generated_at": {"type": "string"},
+    "run": {
+      "type": "object",
+      "required": ["gate_mode"],
+      "properties": {
+        "id": {"type": ["string", "null"]},
+        "commit": {"type": ["string", "null"]},
+        "branch": {"type": ["string", "null"]},
+        "event": {"type": "string"},
+        "gate_mode": {"enum": ["enforce", "report", "external"]}
+      },
+      "additionalProperties": true
+    },
+    "summary": {"type": "object"},
+    "gate": {"type": "object"},
+    "baseline": {"type": "object"},
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["tool", "module", "severity", "title", "fingerprint", "baseline_status"],
+        "properties": {
+          "tool": {"type": "string"},
+          "module": {"type": "string"},
+          "severity": {"enum": ["critical", "high", "medium", "low", "info", "unknown"]},
+          "title": {"type": "string"},
+          "file": {"type": ["string", "null"]},
+          "line": {"type": ["integer", "null"]},
+          "rule_id": {"type": ["string", "null"]},
+          "message": {"type": ["string", "null"]},
+          "fingerprint": {"type": "string"},
+          "baseline_status": {"enum": ["new", "existing"]}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

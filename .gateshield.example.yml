@@ -1,0 +1,134 @@
+version: 1
+
+project:
+  name: example-api
+
+stack:
+  auto_detect: true
+  languages: []
+
+scan:
+  sast: true
+  sca: true
+  secrets: true
+  iac: auto
+  container: auto
+  sbom: true
+  dast: false
+
+scope:
+  # auto = incremental on pull_request, full elsewhere
+  mode: auto
+  base_ref: origin/main
+
+execution:
+  # auto = local binary -> Docker fallback -> missing tool
+  mode: auto
+  timeout_seconds: 600
+  require_tools: true
+
+scanners:
+  sast:
+    include: []
+    exclude: []
+  sca:
+    include: []
+    exclude: []
+
+container:
+  # Optional registry/local image. If omitted, Dockerfile/config scanning still runs.
+  image: null
+
+dast:
+  target: null
+  mode: baseline
+  allowed_hosts:
+    - localhost
+    - 127.0.0.1
+  headers:
+    # Authorization: "${GATESHIELD_DAST_AUTH}"
+
+gate:
+  # enforce: stop on policy violation
+  # report: calculate would_block but return success
+  # external: same as report, intended for a downstream custom gate
+  mode: enforce
+  new_findings_only: true
+  severity:
+    critical: block
+    high: block
+    medium: warn
+    low: report
+    info: report
+    unknown: warn
+  categories:
+    secrets:
+      any: block
+
+baseline:
+  enabled: auto
+  path: .gateshield/baseline.json
+
+artifacts:
+  enabled: true
+  root: .gateshield/artifacts
+  retention_days: 14
+  categories:
+    sast:
+      enabled: true
+      name: null
+      path: null
+      raw: true
+    sca:
+      enabled: true
+      name: null
+      path: null
+      raw: true
+    secrets:
+      enabled: true
+      name: null
+      path: null
+      raw: false
+      retention_days: 3
+    iac:
+      enabled: true
+      name: null
+      path: null
+      raw: true
+    container:
+      enabled: true
+      name: null
+      path: null
+      raw: true
+    sbom:
+      enabled: true
+      name: null
+      path: null
+      raw: true
+    dast:
+      enabled: true
+      name: null
+      path: null
+      raw: true
+
+  # Unlimited for CLI/local consumers. The GitHub composite action uploads the first 5 custom entries individually.
+  custom:
+    # - name: company-sast
+    #   path: reports/company-sast.json
+    #   category: sast
+    #   format: raw
+    #   retention_days: 14
+    # - name: internal-normalized-findings
+    #   path: reports/gateshield-findings.json
+    #   category: sast
+    #   format: gateshield
+
+toolchain:
+  semgrep: "1.175.0"
+  bandit: "1.9.4"
+  pip-audit: "2.10.1"
+  gitleaks: "8.29.1"
+  trivy: "0.74.0"
+  checkov: "3.3.19"
+  syft: "1.52.0"
+  zap: "2.17.0"

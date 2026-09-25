@@ -1,0 +1,10 @@
+scan:
+  sast: false
+  sca: false
+  secrets: true
+  iac: auto
+  container: false
+  sbom: false
+  dast: false
+gate:
+  mode: external
