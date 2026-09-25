@@ -12,7 +12,7 @@ GateShield centralizes security checks that would otherwise be duplicated across
 
 GateShield is an **orchestrator**, not a replacement for the scanners it runs. Detection stays with tools such as Semgrep, Bandit, Trivy, Gitleaks, Checkov, Syft, pip-audit, and OWASP ZAP.
 
-> **Current release:** `0.0.1` — public alpha.
+> **Current version:** `0.0.1` — public alpha.
 
 ## Why GateShield
 
@@ -379,7 +379,7 @@ jobs:
   gateshield:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -403,6 +403,8 @@ jobs:
 ```
 
 The reusable workflow keeps the scan job at `contents: read`. `security-events: write` is isolated to the optional SARIF upload job.
+
+GateShield pins the third-party GitHub Actions shipped in this repository to full commit SHAs. Human-readable version comments are kept next to each pin so updates remain auditable and reproducible.
 
 ## Pull-request scope
 

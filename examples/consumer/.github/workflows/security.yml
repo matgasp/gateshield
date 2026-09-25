@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   security:
-    uses: matgasp/gateshield/.github/workflows/gateshield.yml@v1
+    uses: matgasp/gateshield/.github/workflows/gateshield.yml@v0.0.1
     with:
       config_path: .gateshield.yml
       upload_sarif: false

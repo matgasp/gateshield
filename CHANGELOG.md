@@ -21,3 +21,5 @@ Initial public alpha release.
 - DAST target allowlists and fork pull-request protections.
 - Composite GitHub Action and reusable GitHub workflow.
 - Version-pinned scanner toolchain and `tools list/check` commands.
+- GitHub Actions dependencies pinned to immutable commit SHAs with readable version comments.
+- PyPI Trusted Publishing workflow pinned to a verified immutable publisher revision.
