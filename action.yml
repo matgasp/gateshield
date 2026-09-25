@@ -42,7 +42,7 @@ runs:
 
     - name: Upload SAST artifact
       if: always() && steps.scan.outputs.sast_path != ''
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: ${{ steps.scan.outputs.sast_name }}
         path: ${{ steps.scan.outputs.sast_path }}
@@ -51,7 +51,7 @@ runs:
 
     - name: Upload SCA artifact
       if: always() && steps.scan.outputs.sca_path != ''
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: ${{ steps.scan.outputs.sca_name }}
         path: ${{ steps.scan.outputs.sca_path }}
@@ -60,7 +60,7 @@ runs:
 
     - name: Upload secrets artifact
       if: always() && steps.scan.outputs.secrets_path != ''
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: ${{ steps.scan.outputs.secrets_name }}
         path: ${{ steps.scan.outputs.secrets_path }}
@@ -69,7 +69,7 @@ runs:
 
     - name: Upload IaC artifact
       if: always() && steps.scan.outputs.iac_path != ''
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: ${{ steps.scan.outputs.iac_name }}
         path: ${{ steps.scan.outputs.iac_path }}
@@ -78,7 +78,7 @@ runs:
 
     - name: Upload container artifact
       if: always() && steps.scan.outputs.container_path != ''
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: ${{ steps.scan.outputs.container_name }}
         path: ${{ steps.scan.outputs.container_path }}
@@ -87,7 +87,7 @@ runs:
 
     - name: Upload SBOM artifact
       if: always() && steps.scan.outputs.sbom_path != ''
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: ${{ steps.scan.outputs.sbom_name }}
         path: ${{ steps.scan.outputs.sbom_path }}
@@ -96,7 +96,7 @@ runs:
 
     - name: Upload DAST artifact
       if: always() && steps.scan.outputs.dast_path != ''
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: ${{ steps.scan.outputs.dast_name }}
         path: ${{ steps.scan.outputs.dast_path }}
@@ -105,7 +105,7 @@ runs:
 
     - name: Upload custom artifact 1
       if: always() && steps.scan.outputs.custom_0_path != ''
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: ${{ steps.scan.outputs.custom_0_name }}
         path: ${{ steps.scan.outputs.custom_0_path }}
@@ -114,7 +114,7 @@ runs:
 
     - name: Upload custom artifact 2
       if: always() && steps.scan.outputs.custom_1_path != ''
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: ${{ steps.scan.outputs.custom_1_name }}
         path: ${{ steps.scan.outputs.custom_1_path }}
@@ -123,7 +123,7 @@ runs:
 
     - name: Upload custom artifact 3
       if: always() && steps.scan.outputs.custom_2_path != ''
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: ${{ steps.scan.outputs.custom_2_name }}
         path: ${{ steps.scan.outputs.custom_2_path }}
@@ -132,7 +132,7 @@ runs:
 
     - name: Upload custom artifact 4
       if: always() && steps.scan.outputs.custom_3_path != ''
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: ${{ steps.scan.outputs.custom_3_name }}
         path: ${{ steps.scan.outputs.custom_3_path }}
@@ -141,7 +141,7 @@ runs:
 
     - name: Upload custom artifact 5
       if: always() && steps.scan.outputs.custom_4_path != ''
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: ${{ steps.scan.outputs.custom_4_name }}
         path: ${{ steps.scan.outputs.custom_4_path }}
