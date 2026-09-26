@@ -1,7 +1,7 @@
 # GateShield
 
 [![Python 3.12--3.14](https://img.shields.io/badge/Python-3.12--3.14-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![PyPI](https://img.shields.io/pypi/v/gateshield?logo=pypi&logoColor=white)](https://pypi.org/project/gateshield/)
+[![PyPI](https://img.shields.io/pypi/v/gateshield.svg?logo=pypi&logoColor=white&cacheSeconds=300)](https://pypi.org/project/gateshield/)
 [![CI](https://github.com/matgasp/gateshield/actions/workflows/ci.yml/badge.svg)](https://github.com/matgasp/gateshield/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/matgasp/gateshield/blob/main/LICENSE)
 ![Status: Alpha](https://img.shields.io/badge/Status-Alpha-orange)
